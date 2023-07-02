@@ -1,0 +1,17 @@
+GET http://localhost:3001/reviews
+
+###
+
+GET http://localhost:3001/reviews/approved
+
+###
+
+POST http://localhost:3001/reviews/add
+Content-Type: application/json
+
+{
+    "text": "Very caring and always extremely responsive to our needs.",
+    "firstName": "Madison",
+    "lastInitial": "H",
+    "location": "Philomath, OR"
+}
