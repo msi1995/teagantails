@@ -2,9 +2,10 @@ import { Navbar } from "./Navbar";
 
 export const Homepage = () => {
   return (
-    <>
+    <div className="w-full h-screen">
     <Navbar/>
-    <h1> not sure what will go here yet </h1>
-    </>
+    <div className="w-full h-full">
+    </div>
+    </div>
   );
 };
