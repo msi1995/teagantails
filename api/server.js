@@ -47,13 +47,7 @@ app.post('/reviews/add', async (req, res) => {
     res.json(review)
 });
 
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-  });
-
-
-app.use(express.static(path.join(__dirname, '../client/build', 'index.html')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 app.listen(port, () => console.log(`server connected on port ${port}`))
