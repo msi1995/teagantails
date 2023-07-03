@@ -86,7 +86,7 @@ export const Homepage = () => {
           loop
           muted={isMuted.current}
           playsInline
-          className="parallax-video -z-10 absolute top-0 left-0 w-full h-full object-cover opacity-100"
+          className="parallax-video z-20 absolute top-0 left-0 w-full h-full object-cover opacity-100"
         >
           <source src={bg_video} type="video/mp4" />
         </video>
