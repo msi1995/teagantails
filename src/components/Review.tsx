@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const BASE_ROUTE = "http://localhost:3001";
+// const BASE_ROUTE = "http://localhost:3001";
 
 export const Review = ({ setReviewScreen }: any) => {
   const [firstName, setFirstName] = useState<string>("");
@@ -16,7 +16,7 @@ export const Review = ({ setReviewScreen }: any) => {
       return;
     }
 
-    const data = await fetch(BASE_ROUTE + "/reviews/add", {
+    const data = await fetch("/reviews/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
