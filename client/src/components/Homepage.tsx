@@ -2,7 +2,7 @@ import { Navbar } from "./Navbar";
 import { useState, useEffect, useRef } from "react";
 import "../index.css";
 import "../animations.css";
-import bg_video from "../assets/dogslowmofinal.mp4";
+import bg_video from "../assets/veryshortvideo.mp4";
 
 const heroTextIntro: string = `Hi, I'm Teagan.`;
 const heroTextBase: string = `I `;
@@ -63,11 +63,20 @@ export const Homepage = () => {
 
     return () => clearTimeout(typeTimeoutRef.current);
   }, [currentIndex]);
-  
+
   const isMuted = useRef(true);
 
   return (
     <>
+      <video
+        autoPlay
+        loop
+        muted={isMuted.current}
+        playsInline
+        className="parallax-video absolute top-0 left-0 w-full h-full object-cover opacity-100"
+      >
+        <source src={bg_video} type="video/mp4" />
+      </video>
       <div className="w-full p-0 m-0 flex flex-col min-h-screen">
         <Navbar />
         <div className="flex flex-col items-center justify-center flex-grow">
@@ -77,19 +86,10 @@ export const Homepage = () => {
             </h1>
             <h2 className="sm:text-3xl text-lg font-bold text-white">
               {heroTextBase + currentSentence}{" "}
-              <span className="cursor visible"/>
+              <span className="cursor visible" />
             </h2>
           </div>
         </div>
-        <video
-          autoPlay
-          loop
-          muted={isMuted.current}
-          playsInline
-          className="parallax-video z-20 absolute top-0 left-0 w-full h-full object-cover opacity-100"
-        >
-          <source src={bg_video} type="video/mp4" />
-        </video>
       </div>
       {/*maybe add back later <div className="relative sm:h-96 h-52 min-w-viewport bg-white ">
         <section className="hidden sm:block bg-[radial-gradient(150rem_10rem_at_top,theme(colors.fuchsia.200),white)] items-center relative isolate overflow-x-clip bg-white px-6 py-12 sm:py-22 lg:px-8 lg:py-32"></section>
