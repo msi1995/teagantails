@@ -1,0 +1,58 @@
+@keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-out {
+    animation: slideOut 2.5s ease-in-out forwards;
+  }
+  
+  .animate-in {
+    animation: slideIn 1s ease-in-out forwards;
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 0.2rem;
+    height: 1.6rem;
+    background-color: white;
+    animation: blink 1s infinite;
+  }
+  
+  .visible {
+    visibility: visible;
+  }
+  
+  .invisible {
+    visibility: hidden;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
