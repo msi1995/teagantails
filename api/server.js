@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const uri = process.env.MONGODB_URI;
+const port = process.env.PORT || 3001;
 
 mongoose
     .connect(uri, {
@@ -52,4 +53,4 @@ app.post('/reviews/add', async (req, res) => {
 
 
 
-app.listen(3001, () => console.log('server connected on port 3001'))
+app.listen(port, () => console.log('server connected on port 3001'))
