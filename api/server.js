@@ -53,7 +53,7 @@ app.get('*', (req, res) => {
   });
 
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build', 'index.html')));
 
 
 app.listen(port, () => console.log(`server connected on port ${port}`))
