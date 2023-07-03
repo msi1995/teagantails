@@ -22,9 +22,9 @@ mongoose
 // const User = require('./models/User');
 const Review = require('./models/Review');
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-})
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
 
 app.get('/reviews', async (req, res) => {
     const reviews = await Review.find();
@@ -54,4 +54,4 @@ app.post('/reviews/add', async (req, res) => {
 
 
 
-app.listen(port, () => console.log('server connected on port 3001'))
+app.listen(port, () => console.log(`server connected on port ${port}`))
