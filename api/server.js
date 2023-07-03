@@ -5,14 +5,8 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors(
-    {
-        origin: 'https://teagandfriends-5ef46929a672.herokuapp.com',
-        credentials: true
-    }
-));
-const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/teagan-site';
-const port = process.env.PORT || 3001;
+app.use(cors());
+const uri = process.env.MONGODB_URI;
 
 mongoose
     .connect(uri, {
@@ -54,4 +48,4 @@ app.post('/reviews/add', async (req, res) => {
 
 
 
-app.listen(port, () => console.log(`server connected on port ${port}`))
+app.listen(3001, () => console.log('server connected on port 3001'))
