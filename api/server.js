@@ -20,6 +20,10 @@ mongoose
 // const User = require('./models/User');
 const Review = require('./models/Review');
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+})
+
 app.get('/reviews', async (req, res) => {
     const reviews = await Review.find();
     res.json(reviews);
