@@ -7,10 +7,11 @@ import bg_video from "../assets/Dogslowmocompress.mp4";
 const heroTextIntro: string = `Hi, I'm Teagan.`;
 const heroTextBase: string = `I `;
 const heroTextTypewrite: string[] = [
-  "walk, watch, and exercise dogs",
+  "'d love to take care of all of your furry friends",
   "am a former veterinary assistant",
-  "administer medication (injection, oral, topical)",
+  "am comfortable administering medication (injection, oral, topical)",
   "can provide basic obedience training",
+  "can handle animals with difficult temperaments"
 ];
 
 export const Homepage = () => {
