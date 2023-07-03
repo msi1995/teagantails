@@ -22,12 +22,6 @@ mongoose
 // const User = require('./models/User');
 const Review = require('./models/Review');
 
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build'));
-  });
-
 app.get('/reviews', async (req, res) => {
     const reviews = await Review.find();
     res.json(reviews);
@@ -53,6 +47,13 @@ app.post('/reviews/add', async (req, res) => {
     res.json(review)
 });
 
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build'));
+  });
+
+
+app.use(express.static(path.join(__dirname, '../client/build', 'index.html')));
 
 
 app.listen(port, () => console.log(`server connected on port ${port}`))
