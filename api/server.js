@@ -22,7 +22,7 @@ mongoose
 // const User = require('./models/User');
 const Review = require('./models/Review');
 
-app.use(express.static(path.join(__dirname, '../client/build', "index.html")));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // app.get('/*', function (req, res) {
 //     res.sendFile(path.join(__dirname, '../client/build'));
