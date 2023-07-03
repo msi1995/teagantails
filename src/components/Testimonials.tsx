@@ -4,7 +4,7 @@ import { Review } from "./Review";
 import { ReactComponent as TLogoBlack } from "../assets/tgwalk_black.svg";
 import "../animations.css";
 
-const BASE_ROUTE = "http://localhost:3001";
+const BASE_ROUTE = "https://teagandfriends-5ef46929a672.herokuapp.com/";
 
 interface Testimonial {
   reviewText: string;
