@@ -10,8 +10,10 @@ POST http://localhost:3001/reviews/add
 Content-Type: application/json
 
 {
-    "text": "Very caring and always extremely responsive to our needs.",
-    "firstName": "Madison",
-    "lastInitial": "H",
-    "location": "Philomath, OR"
+    "reviewText": "Teagan did a great job with our dog. She gave us report cards with pictures and let us know how he was doing at each check in. She took extra time to play with him and hang out which was appreciated. We'll definitely check her avaiblity in the future when we need a sitter!",
+    "firstName": "Mary and Matt",
+    "lastInitial": "C",
+    "email": "addedby@admin.com",
+    "city": "Corvallis, OR",
+    "approved": true
 }

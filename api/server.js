@@ -8,7 +8,8 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-    .connect(`mongodb://127.0.0.1:27017/teagan-site`, {
+    .connect(`mongodb+srv://<username>:<password>@cluster0.0iaovkx.mongodb.net/teagan_site?retryWrites=true&w=majority
+    `, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -25,7 +26,7 @@ app.get('/reviews', async (req, res) => {
 });
 
 app.get('/reviews/approved', async (req, res) => {
-    const reviews = await Review.find({approved: true});
+    const reviews = await Review.find({ approved: true });
     res.json(reviews);
 });
 
@@ -37,7 +38,7 @@ app.post('/reviews/add', async (req, res) => {
         lastInitial: req.body.lastInitial,
         city: req.body.city,
         email: req.body.email,
-        approved: false
+        approved: req.body.approved ?? false,
     })
 
     review.save()

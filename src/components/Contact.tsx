@@ -79,7 +79,7 @@ export const Contact = () => {
               }}
             />
           </div>
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="py-6 mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Contact me
             </h2>

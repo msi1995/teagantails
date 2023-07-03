@@ -11,7 +11,7 @@ export const Review = ({ setReviewScreen }: any) => {
 
   const handleReviewSubmit = async (event: any) => {
     event.preventDefault();
-    if (!firstName || !lastInitial || !email || !city || !reviewBody) {
+    if (!firstName || !lastInitial || !email || !reviewBody) {
       alert("Please fill out all required fields.");
       return;
     }
@@ -25,7 +25,7 @@ export const Review = ({ setReviewScreen }: any) => {
         reviewText: reviewBody,
         firstName: firstName,
         lastInitial: lastInitial,
-        city: city,
+        city: city || "Corvallis, OR",
         email: email,
       }),
     });
@@ -34,7 +34,7 @@ export const Review = ({ setReviewScreen }: any) => {
   };
 
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-24 lg:px-8">
+    <div className="isolate bg-white px-6 py-32 sm:py-24 lg:px-8">
       <div
         className="absolute inset-x-0 top-[5rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-15rem]"
         aria-hidden="true"
@@ -135,7 +135,7 @@ export const Review = ({ setReviewScreen }: any) => {
               >
                 <option value="Corvallis, OR">Corvallis</option>
                 <option value="Philomath, OR">Philomath</option>
-                <option value="Lewisburg, OR">Lewisburg</option>
+                <option value="Albany, OR">Albany</option>
               </select>
             </div>
           </div>

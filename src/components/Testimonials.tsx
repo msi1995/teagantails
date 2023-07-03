@@ -38,8 +38,8 @@ export const Testimonials = () => {
         const nextIndex = (currentIndex + 1) % testimonials.length;
         setTestimonial(testimonials[nextIndex]);
         setAnimateOut(false); // Reset the animate out flag
-      }, 1500); // Wait for 500ms before updating the testimonial
-    }, 6000); // 6 sec
+      }, 2200); // Wait for 500ms before updating the testimonial
+    }, 5500); // 5.5 sec
 
     return () => {
       clearInterval(interval);
@@ -60,7 +60,7 @@ export const Testimonials = () => {
     <div className="flex flex-col h-screen">
       <Navbar />
       {!reviewScreen ? (
-        <section className="flex flex-1 bg-[radial-gradient(150rem_15rem_at_top,theme(colors.fuchsia.200),white)] items-center relative isolate overflow-x-clip bg-white px-6 py-12 sm:py-22 lg:px-8 lg:py-64">
+        <section className="flex flex-1 bg-[radial-gradient(150rem_15rem_at_top,theme(colors.fuchsia.200),white)] items-center relative isolate overflow-x-clip bg-white px-6 py-32 sm:py-22 lg:px-8 lg:py-64">
           <div
             className={`mx-auto max-w-2xl lg:max-w-4xl ${
               animateOut ? "animate-out" : "animate-in"
