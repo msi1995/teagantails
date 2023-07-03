@@ -8,6 +8,7 @@ const heroTextIntro: string = `Hi, I'm Teagan.`;
 const heroTextBase: string = `I `;
 const heroTextTypewrite: string[] = [
   "'d love to take care of all of your furry friends",
+  "provide care for dogs, cats, birds, farm animals, and more",
   "am a former veterinary assistant",
   "am comfortable administering medication (injection, oral, topical)",
   "can provide basic obedience training",
@@ -39,9 +40,9 @@ export const Homepage = () => {
       setCurrentSentence(displayedSentence);
 
       if (isDeleting) {
-        delay = 50; // Delay between each backspace (backspacing speed)
+        delay = 35; // Delay between each backspace (backspacing speed)
       } else {
-        delay = 75; // Delay between each character (typing speed)
+        delay = 60; // Delay between each character (typing speed)
       }
 
       if (!isDeleting && displayedSentence === sentence) {
