@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI || 'mongodb+srv://lloyddg7:8aZEZm88WRPg0CPe@cluster0.0iaovkx.mongodb.net/teagan_site?retryWrites=true&w=majority'
 const port = process.env.PORT || 3001;
 
 mongoose
@@ -22,10 +22,10 @@ mongoose
 // const User = require('./models/User');
 const Review = require('./models/Review');
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build', '../client/public/index.html')));
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../client/build'));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', '../client/public/index.html'));
   });
 
 app.get('/reviews', async (req, res) => {
