@@ -16,7 +16,7 @@ export const Review = ({ setReviewScreen }: any) => {
       return;
     }
 
-    const data = await fetch(BASE_ROUTE + "/reviews/add", {
+    const data = await fetch("/reviews/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
