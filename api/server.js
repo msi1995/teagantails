@@ -11,7 +11,7 @@ app.use(cors(
         credentials: true
     }
 ));
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/teagan-site';
 const port = process.env.PORT || 3001;
 
 mongoose
