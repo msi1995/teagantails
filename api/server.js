@@ -23,7 +23,7 @@ mongoose
 const Review = require('./models/Review');
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/build'));
   });
 
 app.get('/reviews', async (req, res) => {
