@@ -63,6 +63,8 @@ export const Homepage = () => {
 
     return () => clearTimeout(typeTimeoutRef.current);
   }, [currentIndex]);
+  
+  const isMuted = useRef(true);
 
   return (
     <>
@@ -82,7 +84,7 @@ export const Homepage = () => {
         <video
           autoPlay
           loop
-          muted
+          muted={isMuted.current}
           playsInline
           className="parallax-video -z-10 absolute top-0 left-0 w-full h-full object-cover opacity-100"
         >
