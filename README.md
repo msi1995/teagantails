@@ -1,6 +1,6 @@
 # Site built with React + TS, Express/Node, Mongo, Tailwind CSS.
 
-https://teagandfriends-5ef46929a672.herokuapp.com/
+https://www.teagantails.com
 
 Responsive CSS, backend w/ review submission, contact form, etc. Built for my girlfriend to grow her business in 2023.
 
