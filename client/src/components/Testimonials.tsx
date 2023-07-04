@@ -55,7 +55,7 @@ export const Testimonials = () => {
       setTestimonials(data);
       setIsLoading(false);
     } catch (error) {
-      //setIsLoading(false); uncomment for local testing
+      //setIsLoading(false); //uncomment for local testing
       console.log(error);
     }
   };
