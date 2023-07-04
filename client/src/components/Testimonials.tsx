@@ -40,7 +40,7 @@ export const Testimonials = () => {
         const nextIndex = (currentIndex + 1) % testimonials.length;
         setTestimonial(testimonials[nextIndex]);
         setAnimateOut(false); // Reset the animate out flag
-      }, 2200); // Wait for 500ms before updating the testimonial
+      }, 2500); // Wait for 500ms before updating the testimonial
     }, 5500); // 5.5 sec
 
     return () => {
