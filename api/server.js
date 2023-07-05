@@ -7,8 +7,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-const uri = process.env.MONGODB_URI || 'mongodb+srv://lloyddg7:8aZEZm88WRPg0CPe@cluster0.0iaovkx.mongodb.net/teagan_site?retryWrites=true&w=majority'
-const port = process.env.PORT || 3001;
+const uri = process.env.MONGODB_URI ?? 'mongodb://localhost:27017/'
+const port = process.env.PORT ?? 3001;
 
 mongoose
     .connect(uri, {
