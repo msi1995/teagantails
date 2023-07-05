@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const BASE_ROUTE = "http://localhost:3001";
 
@@ -29,6 +30,7 @@ export const Review = ({ setReviewScreen }: any) => {
         email: email,
       }),
     });
+    emailjs.send("service_njnh1t8", "template_1174msd", undefined, "jH27kSqIiUkbPafAF");
 
     setReviewScreen(false);
   };
