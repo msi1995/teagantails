@@ -79,7 +79,7 @@ export const Review = ({ setReviewScreen }: any) => {
           </div>
           <form
             onSubmit={handleReviewSubmit}
-            className="mx-auto z-20 mt-16 max-w-xl sm:mt-20"
+            className="mx-auto z-20 mt-16 max-w-2xl sm:mt-20"
           >
             <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div>
@@ -184,7 +184,7 @@ export const Review = ({ setReviewScreen }: any) => {
             <div className="mt-12 flex flex-row space-x-12">
               <button
                 type="submit"
-                className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="block w-full rounded-md bg-pink-400 hover:bg-pink-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Submit Review
               </button>

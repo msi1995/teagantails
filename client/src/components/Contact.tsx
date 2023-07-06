@@ -84,13 +84,19 @@ export const Contact = () => {
               Contact me
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-600">
+              I offer walks, drop-ins, and extended visits/pet-sitting 7 days a week.
+            </p>
+            <p className="mt-0 text-lg leading-8 text-gray-600">
+              Available primarily in Corvallis, Philomath, and Albany.
+            </p>
+            <p className="mt-12 text-lg leading-8 text-gray-600">
               Please fill out the form below and I'll get back to you!
             </p>
           </div>
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mx-auto mt-16 max-w-xl sm:mt-20"
+            className="mx-auto mt-16 max-w-2xl sm:mt-20"
           >
             <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div>
