@@ -23,13 +23,28 @@ mongoose
 const Review = require('./models/Review');
 
 app.get('/reviews', async (req, res) => {
-    const reviews = await Review.find();
-    res.json(reviews);
+
+    try {
+        const reviews = await Review.find();
+        res.status(200).json(reviews);
+    }
+    catch (err) {
+        console.error(`error: ${err}`)
+        res.status(500).send({ error: "Error fetching reviews from DB." })
+    }
 });
 
 app.get('/reviews/approved', async (req, res) => {
-    const reviews = await Review.find({ approved: true });
-    res.json(reviews);
+
+    try {
+        const reviews = await Review.find({ approved: true });
+        res.status(200).json(reviews);
+    }
+
+    catch (err) {
+        console.error(`error: ${err}`)
+        res.status(500).send({ error: "Error fetching approved reviews from DB." })
+    }
 });
 
 
