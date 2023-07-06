@@ -66,7 +66,7 @@ export const Contact = () => {
           </div>
         </div>
       ) : (
-        <div className="isolate bg-white px-6 py-24 sm:py-24 lg:px-8">
+        <div className="isolate bg-white px-6 pt-24 pb-8 sm:py-24 lg:px-8">
           <div
             className="absolute inset-x-0 top-[5rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-15rem]"
             aria-hidden="true"
