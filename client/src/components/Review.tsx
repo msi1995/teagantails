@@ -62,7 +62,7 @@ export const Review = ({ setReviewScreen }: any) => {
           </h2>
           <button
             onClick={() => setReviewScreen(false)}
-            className="mt-4 mx-auto flex justify-center w-48 rounded-md bg-pink-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="mt-4 mx-auto flex justify-center w-48 rounded-md bg-pink-400 hover:bg-pink-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Back to Testimonials
           </button>
