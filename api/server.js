@@ -62,11 +62,11 @@ app.post('/reviews/add', async (req, res) => {
     res.json(review)
 });
 
+//static file serving below seems very touchy. don't mess with it
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
   });
-
 
 app.listen(port, () => console.log(`server connected on port ${port}`))
