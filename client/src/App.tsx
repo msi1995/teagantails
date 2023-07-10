@@ -1,17 +1,20 @@
-import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Homepage } from './components/Homepage';
 import { Contact } from './components/Contact';
 import { Testimonials } from "./components/Testimonials";
+import { PageNotFound } from "./components/PageNotFound";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage/>} />
         <Route path="/testimonials" element={<Testimonials/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/404" element={<PageNotFound/>} />
+        <Route path="*" element={<Navigate to="/404"/>}/>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
