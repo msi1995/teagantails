@@ -96,7 +96,7 @@ export const Contact = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mx-auto mt-16 max-w-2xl sm:mt-20"
+            className="mx-auto mt-16 max-w-2xl sm:mt-20 mt-4"
           >
             <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div>

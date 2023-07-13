@@ -53,6 +53,16 @@ export const Navbar = () => {
                 >
                   Contact
                 </NavLink>
+                <NavLink
+                  to={"/intake"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-gray-900 text-white block rounded-md px-4 py-2 text-base font-medium"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium"
+                  }
+                >
+                  Intake Form
+                </NavLink>
               </div>
             </div>
           </div>
@@ -62,7 +72,7 @@ export const Navbar = () => {
         className="sm:hidden flex flex-row space-between justify-center"
         id="mobile-menu"
       >
-        <div className="space-y-1 px-2 pb-3 pt-2">
+        <div className="space-y-1 px-1 pb-3 pt-2">
           <NavLink
             to={"/"}
             className={({ isActive }) =>
@@ -97,6 +107,18 @@ export const Navbar = () => {
             }
           >
             Contact
+          </NavLink>
+        </div>
+        <div className="space-y-1 px-2 pb-3 pt-2">
+          <NavLink
+            to={"/intake"}
+            className={({ isActive }) =>
+              isActive
+                ? "bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                : "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+            }
+          >
+            Intake
           </NavLink>
         </div>
       </div>

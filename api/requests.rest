@@ -17,3 +17,19 @@ Content-Type: application/json
     "city": "Corvallis, OR",
     "approved": true
 }
+
+###
+
+POST http://localhost:3001/intakes/add
+Content-Type: application/json
+
+{
+    "firstName": "ddd",
+    "lastInitial":"S",
+    "email":"s@s.com",
+    "animalType":"dog",
+    "petNames": "dog 1 and cat 1",
+    "specialInstructions":"",
+    "triggersOrAggressions":"",
+    "intakeBody":"intake message"
+}

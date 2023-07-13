@@ -2,9 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-
 const app = express();
-
 app.use(express.json());
 app.use(cors());
 const uri = process.env.MONGODB_URI ?? 'mongodb://localhost:27017/teagan-site'
@@ -19,8 +17,10 @@ mongoose
     .catch((error) => console.log(error));
 
 
-// const User = require('./models/User');
+
+
 const Review = require('./models/Review');
+const Intake = require('./models/Intake')
 
 app.get('/reviews', async (req, res) => {
 
@@ -60,6 +60,24 @@ app.post('/reviews/add', async (req, res) => {
 
     review.save()
     res.json(review)
+});
+
+app.post('/intakes/add', async (req, res) => {
+    const intake = new Intake({
+        firstName: req.body.firstName,
+        lastInitial: req.body.lastInitial,
+        email: req.body.email,
+        contactNumber: req.body.contactNumber,
+        address: req.body.address,
+        animalType: req.body.animalType,
+        petNames: req.body.petNames,
+        specialInstructions: req.body.specialInstructions,
+        triggersOrAggressions: req.body.triggersOrAggressions,
+        intakeBody: req.body.intakeBody,
+    })
+
+    intake.save()
+    res.json(intake)
 });
 
 //static file serving below seems very touchy. don't mess with it

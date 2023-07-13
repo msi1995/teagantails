@@ -30,12 +30,12 @@ export const Review = ({ setReviewScreen }: any) => {
         email: email,
       }),
     });
-    emailjs.send(
-      "service_njnh1t8",
-      "template_1174msd",
-      undefined,
-      "jH27kSqIiUkbPafAF"
-    );
+    // emailjs.send(
+    //   "service_njnh1t8",
+    //   "template_1174msd",
+    //   undefined,
+    //   "jH27kSqIiUkbPafAF"
+    // );
 
     setReviewSubmitted(true);
   };
@@ -78,7 +78,7 @@ export const Review = ({ setReviewScreen }: any) => {
           </div>
           <form
             onSubmit={handleReviewSubmit}
-            className="mx-auto z-20 mt-16 max-w-2xl sm:mt-20"
+            className="mx-auto z-20 mt-16 max-w-2xl sm:mt-20 mt-8"
           >
             <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div>
