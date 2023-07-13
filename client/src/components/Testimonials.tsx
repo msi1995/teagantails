@@ -4,9 +4,7 @@ import { Review } from "./Review";
 import { ReactComponent as TLogoBlack } from "../assets/tgwalk_black.svg";
 import "../animations.css";
 
-// const BASE_ROUTE = "https://teagandfriends-5ef46929a672.herokuapp.com";
-// const BASE_ROUTE = "http://localhost:3001";
-const BASE_ROUTE = process.env.MONGODB_URI ? '' : 'http://localhost:3001'
+const BASE_ROUTE = process.env.NODE_ENV == 'production' ? '' : 'http://localhost:3001'
 
 interface Testimonial {
   reviewText: string;
