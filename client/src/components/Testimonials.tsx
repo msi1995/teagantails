@@ -3,8 +3,7 @@ import { Navbar } from "./Navbar";
 import { Review } from "./Review";
 import { ReactComponent as TLogoBlack } from "../assets/tgwalk_black.svg";
 import "../animations.css";
-
-const BASE_ROUTE = process.env.NODE_ENV == 'production' ? '' : 'http://localhost:3001'
+import { BASE_ROUTE } from "../App";
 
 interface Testimonial {
   reviewText: string;
