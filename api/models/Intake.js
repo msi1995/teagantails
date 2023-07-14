@@ -23,7 +23,7 @@ const IntakeModel = {
         required: true
     },
     animalType: {
-        type: String,
+        type: [String],
         required: true
     },
     petNames: {

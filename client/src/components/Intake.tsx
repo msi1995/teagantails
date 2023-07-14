@@ -12,7 +12,6 @@ export const Intake = () => {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [address, setAddress] = useState<string>("");
-  const [animalType, setAnimalType] = useState<string>("Dog");
   const [animalTypeOther, setAnimalTypeOther] = useState<string>("");
   const [petNames, setPetNames] = useState<string>("");
   const [notDogOrCat, setNotDogOrCat] = useState<boolean>(false);
@@ -24,12 +23,20 @@ export const Intake = () => {
   const [hasTriggersOrAggressions, setHasTriggersOrAggressions] =
     useState<boolean>(false);
   const [intakeBody, setIntakeBody] = useState<string>("");
+  const [hasDogs, setHasDogs] = useState<boolean>(false);
+  const [hasCats, setHasCats] = useState<boolean>(false);
+  const [hasOther, setHasOther] = useState<boolean>(false);
+  const [numDogs, setNumDogs] = useState<string>("0");
+  const [numCats, setNumCats] = useState<string>("0");
+  const [numOthers, setNumOthers] = useState<string>("0");
 
   const handleIntakeSubmit = async (event: any) => {
     event.preventDefault();
 
-    if(!canSubmitIntake){
-      alert("The intake form should only be completed after initial correspondence. Please use the contact form unless you have been asked to complete intake.")
+    if (!canSubmitIntake) {
+      alert(
+        "The intake form should only be completed after initial correspondence. Please use the contact form unless you have been asked to complete intake."
+      );
       return;
     }
 
@@ -49,9 +56,23 @@ export const Intake = () => {
       return;
     }
 
-    const animalTypeClean = notDogOrCat ? animalTypeOther : animalType;
+    const animalTypes: string[] = [];
 
-    const data = await fetch(BASE_ROUTE + "/intakes/add", {
+    if (parseInt(numDogs) > 0) {
+      animalTypes.push(`Dogs: ${numDogs}`);
+    }
+    if (parseInt(numCats) > 0) {
+      animalTypes.push(`Cats: ${numCats}`);
+    }
+    if (parseInt(numOthers) > 0) {
+      animalTypes.push(`Others: ${numOthers} -- ${animalTypeOther}`);
+    }
+    if (animalTypes.length === 0) {
+      alert("Please specify number of animals");
+      return;
+    }
+
+    await fetch(BASE_ROUTE + "/intakes/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +83,7 @@ export const Intake = () => {
         email: email,
         contactNumber: phoneNumber,
         address: address,
-        animalType: animalTypeClean,
+        animalType: animalTypes,
         petNames: petNames,
         specialInstructions: specialInstructions,
         triggersOrAggressions: triggersOrAggressions,
@@ -86,7 +107,7 @@ export const Intake = () => {
         }
       );
 
-      setIntakeSubmitted(true);
+    setIntakeSubmitted(true);
   };
 
   return (
@@ -141,25 +162,31 @@ export const Intake = () => {
             className="mx-auto mt-16 max-w-2xl sm:mt-12 mt-4"
           >
             <div className="grid grid-cols-1 gap-x-8 sm:gap-y-4 gap-y-6 sm:grid-cols-2">
-            <div className="sm:col-span-2">
+              <div className="sm:col-span-2">
                 <label
-                  htmlFor="animalType"
+                  htmlFor="canSubmitIntake"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  I have been instructed to complete the Intake Form after initial correspondence via email or phone.<span className="text-red-600"> *</span>
+                  I have been instructed to complete the Intake Form after
+                  initial correspondence via email or phone.
+                  <span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <select
                     value={canSubmitIntake === true ? "Yes" : "No"}
-                    onChange={(e) => setCanSubmitIntake(
-                      e.target.value === "Yes" ? true : false
-                    )}
-                    name="specialInstructionsRequired"
-                    id="specialInstructionsRequired"
+                    onChange={(e) =>
+                      setCanSubmitIntake(
+                        e.target.value === "Yes" ? true : false
+                      )
+                    }
                     className="block w-full sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   >
-                    <option value="No">No, I haven't been asked to complete the intake form.</option>
-                    <option value="Yes">Yes, I have been asked to complete the intake form.</option>
+                    <option value="No">
+                      No, I haven't been asked to complete the intake form.
+                    </option>
+                    <option value="Yes">
+                      Yes, I have been asked to complete the intake form.
+                    </option>
                   </select>
                 </div>
               </div>
@@ -172,7 +199,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
@@ -192,7 +219,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     type="text"
                     maxLength={1}
                     value={lastInitial}
@@ -213,7 +240,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -239,7 +266,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     type="tel"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
@@ -259,7 +286,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -277,8 +304,110 @@ export const Intake = () => {
                 >
                   Animal Type<span className="text-red-600"> *</span>
                 </label>
-                <div className="mt-2.5">
-                  <select
+                <div className="mt-2.5 flex flex-col w-full gap-y-2">
+                  <div className="flex flex-row items-center">
+                    <div className="w-24">
+                      <input
+                        disabled={!canSubmitIntake}
+                        onChange={() => setHasDogs(!hasDogs)}
+                        className="align-middle h-4 w-4 mr-1"
+                        type="checkbox"
+                      />
+                      <label className="align-middle">Dogs</label>
+                    </div>
+                    {hasDogs && (
+                      <div className="flex flex-row items-center gap-x-2 w-64">
+                        <label
+                          htmlFor="last-name"
+                          className="w-20 text-sm font-semibold leading-6 text-gray-900"
+                        >
+                          # of Dogs:<span className="text-red-600"></span>
+                        </label>
+                        <input
+                          disabled={!canSubmitIntake}
+                          type="text"
+                          maxLength={1}
+                          value={numDogs}
+                          onChange={(e) => setNumDogs(e.target.value)}
+                          name="last_initial"
+                          id="last-name"
+                          autoComplete="family-name"
+                          className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-row items-center">
+                    <div className="w-24">
+                      <input
+                        disabled={!canSubmitIntake}
+                        onChange={() => setHasCats(!hasCats)}
+                        className="align-middle h-4 w-4 mr-1"
+                        type="checkbox"
+                      />
+                      <label className="align-middle">Cats</label>
+                    </div>
+                    {hasCats && (
+                      <div className="flex flex-row items-center gap-x-2 w-64">
+                        <label
+                          htmlFor="last-name"
+                          className="text-sm w-20 font-semibold leading-6 text-gray-900"
+                        >
+                          # of Cats
+                        </label>
+                        <input
+                          disabled={!canSubmitIntake}
+                          type="text"
+                          maxLength={1}
+                          value={numCats}
+                          onChange={(e) => setNumCats(e.target.value)}
+                          name="last_initial"
+                          id="last-name"
+                          autoComplete="family-name"
+                          className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <div className="flex flex-row items-center">
+                      <div className="w-24">
+                        <input
+                          disabled={!canSubmitIntake}
+                          onChange={() => {
+                            setHasOther(!hasOther);
+                            setNotDogOrCat(!notDogOrCat);
+                          }}
+                          className="align-middle h-4 w-4 mr-1"
+                          type="checkbox"
+                        />
+                        <label className="align-middle">Other</label>
+                      </div>
+                      {hasOther && (
+                        <div className="flex flex-row items-center gap-x-2 w-64">
+                          <label
+                            htmlFor="last-name"
+                            className="text-sm w-20 font-semibold leading-6 text-gray-900"
+                          >
+                            # of Other<span className="text-red-600"></span>
+                          </label>
+                          <input
+                            disabled={!canSubmitIntake}
+                            type="text"
+                            maxLength={1}
+                            value={numOthers}
+                            onChange={(e) => setNumOthers(e.target.value)}
+                            name="last_initial"
+                            id="last-name"
+                            autoComplete="family-name"
+                            className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* <select
                   disabled={!canSubmitIntake}
                     value={animalType}
                     onChange={(e) => {
@@ -293,7 +422,7 @@ export const Intake = () => {
                     <option value="Dog">Dog</option>
                     <option value="Cat">Cat</option>
                     <option value="Other">Other</option>
-                  </select>
+                  </select> */}
                 </div>
               </div>
               {notDogOrCat && (
@@ -303,11 +432,12 @@ export const Intake = () => {
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
                     You selected 'Other'. Please specify the type(s) of animals
-                    you are seeking care for.<span className="text-red-600"> *</span>
+                    you are seeking care for.
+                    <span className="text-red-600"> *</span>
                   </label>
                   <div className="mt-2.5">
                     <textarea
-                    disabled={!canSubmitIntake}
+                      disabled={!canSubmitIntake}
                       value={animalTypeOther}
                       onChange={(e) => setAnimalTypeOther(e.target.value)}
                       rows={1}
@@ -326,7 +456,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <input
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     type="text"
                     value={petNames}
                     onChange={(e) => setPetNames(e.target.value)}
@@ -346,7 +476,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <select
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     value={specialInstructionsRequired === true ? "Yes" : "No"}
                     onChange={(e) => {
                       setSpecialInstructionsRequired(
@@ -370,11 +500,12 @@ export const Intake = () => {
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
                     Please explain what medication or specialized care is
-                    required, and how it is administered, if applicable.<span className="text-red-600"> *</span>
+                    required, and how it is administered, if applicable.
+                    <span className="text-red-600"> *</span>
                   </label>
                   <div className="mt-2.5">
                     <textarea
-                    disabled={!canSubmitIntake}
+                      disabled={!canSubmitIntake}
                       value={specialInstructions}
                       onChange={(e) => setSpecialInstructions(e.target.value)}
                       name="specialInstructions"
@@ -391,7 +522,8 @@ export const Intake = () => {
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   Do any of the animals have triggers, aggressive behaviors, or
-                  anything else I should know about?<span className="text-red-600"> *</span>
+                  anything else I should know about?
+                  <span className="text-red-600"> *</span>
                   <div className="sm:pr-16 pr-6 text-left">
                     <span className="px-0 text-xs text-gray-400 px-2 italic">
                       {" "}
@@ -404,7 +536,7 @@ export const Intake = () => {
                 </label>
                 <div className="mt-2.5">
                   <select
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     value={hasTriggersOrAggressions === true ? "Yes" : "No"}
                     onChange={(e) => {
                       setHasTriggersOrAggressions(
@@ -427,11 +559,12 @@ export const Intake = () => {
                     htmlFor="animalType"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Please explain the triggers or aggressions.<span className="text-red-600"> *</span>
+                    Please explain the triggers or aggressions.
+                    <span className="text-red-600"> *</span>
                   </label>
                   <div className="mt-2.5">
                     <textarea
-                    disabled={!canSubmitIntake}
+                      disabled={!canSubmitIntake}
                       value={triggersOrAggressions}
                       onChange={(e) => setTriggersOrAggressions(e.target.value)}
                       name="triggersOrAggressions"
@@ -448,11 +581,12 @@ export const Intake = () => {
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
                   Please explain the type of care you are seeking, and specify
-                  the dates or times care is needed.<span className="text-red-600"> *</span>
+                  the dates or times care is needed.
+                  <span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <textarea
-                  disabled={!canSubmitIntake}
+                    disabled={!canSubmitIntake}
                     value={intakeBody}
                     onChange={(e) => setIntakeBody(e.target.value)}
                     name="intakeBody"
