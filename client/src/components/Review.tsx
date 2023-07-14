@@ -86,7 +86,7 @@ export const Review = ({ setReviewScreen }: any) => {
                   htmlFor="first-name"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  First name
+                  First name<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -105,7 +105,7 @@ export const Review = ({ setReviewScreen }: any) => {
                   htmlFor="last-name"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Last Initial
+                  Last Initial<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -125,7 +125,7 @@ export const Review = ({ setReviewScreen }: any) => {
                   htmlFor="email"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Email
+                  Email<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -144,7 +144,7 @@ export const Review = ({ setReviewScreen }: any) => {
                   htmlFor="city"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  City
+                  City<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <select
@@ -165,7 +165,7 @@ export const Review = ({ setReviewScreen }: any) => {
                   htmlFor="message"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  What did you think?
+                  What did you think?<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <textarea

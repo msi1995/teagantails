@@ -104,7 +104,7 @@ export const Contact = () => {
                   htmlFor="first_name"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  First name
+                  First name<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -123,7 +123,7 @@ export const Contact = () => {
                   htmlFor="last-name"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Last name
+                  Last name<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -142,7 +142,7 @@ export const Contact = () => {
                   htmlFor="email"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Email
+                  Email<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -161,7 +161,7 @@ export const Contact = () => {
                   htmlFor="phone-number"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Phone number (Optional)
+                  Phone number
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -182,7 +182,7 @@ export const Contact = () => {
                   htmlFor="message"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Message (General or specific inquiries are welcome)
+                  Message (General or specific inquiries are welcome)<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <textarea

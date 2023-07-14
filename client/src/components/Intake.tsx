@@ -39,6 +39,7 @@ export const Intake = () => {
       !email ||
       !phoneNumber ||
       !petNames ||
+      !address ||
       (notDogOrCat && !animalTypeOther) ||
       (specialInstructionsRequired && !specialInstructions) ||
       (hasTriggersOrAggressions && !triggersOrAggressions) ||
@@ -232,8 +233,7 @@ export const Intake = () => {
                   <div className="sm:pr-16 pr-6 text-left">
                     <span className="px-0 text-xs text-gray-400 px-2 italic">
                       {" "}
-                      I ask for this in case I need to contact you about
-                      questions/updates related to your pet.{" "}
+                      I need this so I can provide updates regarding your pet.{" "}
                     </span>
                   </div>
                 </label>
@@ -255,7 +255,7 @@ export const Intake = () => {
                   htmlFor="address"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  Address
+                  Address<span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -292,7 +292,7 @@ export const Intake = () => {
                   >
                     <option value="Dog">Dog</option>
                     <option value="Cat">Cat</option>
-                    <option value="Other">Other Animal</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
               </div>

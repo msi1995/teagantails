@@ -20,7 +20,7 @@ const IntakeModel = {
     },
     address:{
         type: String,
-        required: false
+        required: true
     },
     animalType: {
         type: String,
