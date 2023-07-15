@@ -329,9 +329,8 @@ export const Intake = () => {
                           maxLength={1}
                           value={numDogs}
                           onChange={(e) => setNumDogs(e.target.value)}
-                          name="last_initial"
-                          id="last-name"
-                          autoComplete="family-name"
+                          name="num_dogs"
+                            id="num_dogs"
                           className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -361,9 +360,8 @@ export const Intake = () => {
                           maxLength={1}
                           value={numCats}
                           onChange={(e) => setNumCats(e.target.value)}
-                          name="last_initial"
-                          id="last-name"
-                          autoComplete="family-name"
+                          name="num_cats"
+                          id="num_cats"
                           className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -397,9 +395,8 @@ export const Intake = () => {
                             maxLength={1}
                             value={numOthers}
                             onChange={(e) => setNumOthers(e.target.value)}
-                            name="last_initial"
-                            id="last-name"
-                            autoComplete="family-name"
+                            name="num_others"
+                            id="num_others"
                             className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                           />
                         </div>
