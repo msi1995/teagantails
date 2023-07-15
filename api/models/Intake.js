@@ -41,6 +41,10 @@ const IntakeModel = {
     intakeBody:{
         type: String,
         required: true
+    },
+    completedAt:{
+        type: Date,
+        required: true
     }
 }
 

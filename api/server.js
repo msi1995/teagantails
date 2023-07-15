@@ -74,6 +74,7 @@ app.post('/intakes/add', async (req, res) => {
         specialInstructions: req.body.specialInstructions,
         triggersOrAggressions: req.body.triggersOrAggressions,
         intakeBody: req.body.intakeBody,
+        completedAt: req.body.completedAt,
     })
 
     intake.save()

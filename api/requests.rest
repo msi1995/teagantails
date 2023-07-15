@@ -26,10 +26,13 @@ Content-Type: application/json
 {
     "firstName": "ddd",
     "lastInitial":"S",
+    "contactNumber": "129312939",
     "email":"s@s.com",
+    "address": "123",
     "animalType":"dog",
     "petNames": "dog 1 and cat 1",
     "specialInstructions":"",
     "triggersOrAggressions":"",
-    "intakeBody":"intake message"
+    "intakeBody":"intake message",
+    "completedAt": "123"
 }

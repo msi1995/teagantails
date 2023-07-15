@@ -88,6 +88,7 @@ export const Intake = () => {
         specialInstructions: specialInstructions,
         triggersOrAggressions: triggersOrAggressions,
         intakeBody: intakeBody,
+        completedAt: new Date(),
       }),
     });
 
