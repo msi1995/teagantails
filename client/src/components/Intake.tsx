@@ -309,7 +309,7 @@ export const Intake = () => {
                     <div className="w-24">
                       <input
                         disabled={!canSubmitIntake}
-                        onChange={() => setHasDogs(!hasDogs)}
+                        onChange={() => {setHasDogs(!hasDogs); setNumDogs('0')}}
                         className="align-middle h-4 w-4 mr-1"
                         type="checkbox"
                       />
@@ -340,7 +340,7 @@ export const Intake = () => {
                     <div className="w-24">
                       <input
                         disabled={!canSubmitIntake}
-                        onChange={() => setHasCats(!hasCats)}
+                        onChange={() => {setHasCats(!hasCats); setNumCats('0')}}
                         className="align-middle h-4 w-4 mr-1"
                         type="checkbox"
                       />
@@ -374,6 +374,7 @@ export const Intake = () => {
                           disabled={!canSubmitIntake}
                           onChange={() => {
                             setHasOther(!hasOther);
+                            setNumOthers('0');
                             setNotDogOrCat(!notDogOrCat);
                           }}
                           className="align-middle h-4 w-4 mr-1"
