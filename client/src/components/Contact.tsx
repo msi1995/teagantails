@@ -84,7 +84,7 @@ export const Contact = () => {
               Contact me
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-              I offer walks, drop-ins, and extended visits/pet-sitting 7 days a week.
+              I offer walks, drop-ins, basic grooming services, and pet-sitting 7 days a week.
             </p>
             <p className="mt-0 text-lg leading-8 text-gray-600">
               Available primarily in Corvallis, Philomath, and Albany.

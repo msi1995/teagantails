@@ -30,6 +30,10 @@ const IntakeModel = {
         type: String,
         required: true
     },
+    interestedGrooming: {
+        type: String,
+        required: true
+    },
     specialInstructions: {
         type: String,
         required: false

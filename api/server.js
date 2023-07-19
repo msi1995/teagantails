@@ -71,6 +71,7 @@ app.post('/intakes/add', async (req, res) => {
         address: req.body.address,
         animalType: req.body.animalType,
         petNames: req.body.petNames,
+        interestedGrooming: req.body.interestedGrooming,
         specialInstructions: req.body.specialInstructions,
         triggersOrAggressions: req.body.triggersOrAggressions,
         intakeBody: req.body.intakeBody,

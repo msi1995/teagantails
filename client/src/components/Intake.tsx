@@ -15,6 +15,7 @@ export const Intake = () => {
   const [animalTypeOther, setAnimalTypeOther] = useState<string>("");
   const [petNames, setPetNames] = useState<string>("");
   const [notDogOrCat, setNotDogOrCat] = useState<boolean>(false);
+  const [interestedGrooming, setInterestedGrooming] = useState<string>("No");
   const [specialInstructions, setSpecialInstructions] = useState<string>("");
   const [specialInstructionsRequired, setSpecialInstructionsRequired] =
     useState<boolean>(false);
@@ -85,6 +86,7 @@ export const Intake = () => {
         address: address,
         animalType: animalTypes,
         petNames: petNames,
+        interestedGrooming: interestedGrooming,
         specialInstructions: specialInstructions,
         triggersOrAggressions: triggersOrAggressions,
         intakeBody: intakeBody,
@@ -314,7 +316,7 @@ export const Intake = () => {
                         className="align-middle h-4 w-4 mr-1"
                         type="checkbox"
                       />
-                      <label className="align-middle">Dogs</label>
+                      <label className="align-middle">Dog</label>
                     </div>
                     {hasDogs && (
                       <div className="flex flex-row items-center gap-x-2 w-64">
@@ -345,7 +347,7 @@ export const Intake = () => {
                         className="align-middle h-4 w-4 mr-1"
                         type="checkbox"
                       />
-                      <label className="align-middle">Cats</label>
+                      <label className="align-middle">Cat</label>
                     </div>
                     {hasCats && (
                       <div className="flex flex-row items-center gap-x-2 w-64">
@@ -463,6 +465,32 @@ export const Intake = () => {
                     id="pet_names"
                     className="block w-full sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+                </div>
+              </div>
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="interested_grooming"
+                  className="block text-sm font-semibold leading-6 text-gray-900"
+                >
+                  I offer basic grooming services for dogs and cats, such as nail trimming, bathing, and brushing. Is this something you might be interested in?<span className="text-red-600"> *</span>
+                </label>
+                <div className="mt-2.5">
+                  <select
+                    disabled={!canSubmitIntake}
+                    value={interestedGrooming}
+                    onChange={(e) => {
+                      setInterestedGrooming(
+                        e.target.value
+                      );
+                    }}
+                    name="interested_grooming"
+                    id="interested_grooming"
+                    className="block w-full sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  >
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Not Sure">Not Sure</option>
+                  </select>
                 </div>
               </div>
               <div className="sm:col-span-2">
