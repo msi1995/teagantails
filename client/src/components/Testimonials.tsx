@@ -61,7 +61,7 @@ export const Testimonials = () => {
         console.log(nextIndex)
       setTestimonial(testimonials[nextIndex]);
       setAnimateOut(false); // Reset the animate out flag
-    }, 1500); // Wait for 1500ms before updating (ease out time)
+    }, 1000); // Wait for 1s before updating (ease out time)
   };
 
   const getTestimonials = async () => {

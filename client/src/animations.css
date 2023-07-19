@@ -21,11 +21,11 @@
   }
   
   .animate-out {
-    animation: slideOut 1.5s ease-in-out forwards;
+    animation: slideOut 1s ease-in-out forwards;
   }
   
   .animate-in {
-    animation: slideIn 1s ease-in-out forwards;
+    animation: slideIn .75s ease-in-out forwards;
   }
   
   .cursor {
