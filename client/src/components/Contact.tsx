@@ -61,7 +61,7 @@ export const Contact = () => {
           </div>
           <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-2xl">
-            Thanks! I'll get back to you soon.
+            Thanks! I'll try to get back to you within 24 hours.
           </h2>
           </div>
         </div>

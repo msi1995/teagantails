@@ -4,6 +4,7 @@ import { Review } from "./Review";
 import { ReactComponent as TLogoBlack } from "../assets/tgwalk_black.svg";
 import "../animations.css";
 import { BASE_ROUTE } from "../App";
+import Chevron from "../assets/chevron.png";
 
 interface Testimonial {
   reviewText: string;
@@ -19,6 +20,10 @@ export const Testimonials = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [animateOut, setAnimateOut] = useState(false);
   const [reviewScreen, setReviewScreen] = useState(false);
+
+  const mod = (n: number, m: number) => {
+    return ((n % m) + m) % m;
+  }
 
   useEffect(() => {
     getTestimonials();
@@ -38,13 +43,26 @@ export const Testimonials = () => {
         const nextIndex = (currentIndex + 1) % testimonials.length;
         setTestimonial(testimonials[nextIndex]);
         setAnimateOut(false); // Reset the animate out flag
-      }, 2500); // Wait for 500ms before updating the testimonial
-    }, 5500); // 5.5 sec
+      }, 1500); // fade to left animation time
+    }, 7500); // 7.5 sec
 
     return () => {
       clearInterval(interval);
     };
   }, [testimonial, testimonials, reviewScreen]);
+
+  const navTestimonial = (forward: boolean) => {
+    setAnimateOut(true); // Trigger the animate out effect
+    setTimeout(() => {
+      const currentIndex = testimonials.findIndex((t) => t === testimonial);
+      const nextIndex = forward
+        ? mod((currentIndex + 1), testimonials.length)
+        : mod((currentIndex - 1), testimonials.length)
+        console.log(nextIndex)
+      setTestimonial(testimonials[nextIndex]);
+      setAnimateOut(false); // Reset the animate out flag
+    }, 1500); // Wait for 1500ms before updating (ease out time)
+  };
 
   const getTestimonials = async () => {
     try {
@@ -53,7 +71,6 @@ export const Testimonials = () => {
       setTestimonials(data);
       setIsLoading(false);
     } catch (error) {
-      //setIsLoading(false); //uncomment for local testing
       console.log(error);
     }
   };
@@ -71,9 +88,21 @@ export const Testimonials = () => {
             >
               <TLogoBlack className="mx-auto h-16 w-24" />
               <figure className="mt-10">
-                <blockquote className="text-center sm:text-2xl text-md font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-                  <p>{testimonial?.reviewText}</p>
-                </blockquote>
+                <div className="flex flex-row items-center">
+                  <img
+                    src={Chevron}
+                    onClick={() => navTestimonial(false)}
+                    className="grow-0 w-4 h-4 sm:w-5 sm:h-5 rotate-180 cursor-pointer"
+                  ></img>
+                  <blockquote className="text-center sm:px-24 px-5 sm:text-2xl text-md font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                    <p>{testimonial?.reviewText}</p>
+                  </blockquote>
+                  <img
+                    src={Chevron}
+                    onClick={() => navTestimonial(true)}
+                    className="grow-0 w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
+                  ></img>
+                </div>
                 <figcaption className="mt-10">
                   <img
                     className="mx-auto h-16 w-16 rounded-full border-dotted border-4 border-yellow-400"

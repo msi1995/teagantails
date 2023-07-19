@@ -21,7 +21,7 @@
   }
   
   .animate-out {
-    animation: slideOut 2.5s ease-in-out forwards;
+    animation: slideOut 1.5s ease-in-out forwards;
   }
   
   .animate-in {
