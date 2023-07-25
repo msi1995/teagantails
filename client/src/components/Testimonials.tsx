@@ -5,6 +5,7 @@ import { ReactComponent as TLogoBlack } from "../assets/tgwalk_black.svg";
 import "../animations.css";
 import { BASE_ROUTE } from "../App";
 import Chevron from "../assets/chevron.png";
+import { useSwipeable } from "react-swipeable";
 
 interface Testimonial {
   reviewText: string;
@@ -23,7 +24,13 @@ export const Testimonials = () => {
 
   const mod = (n: number, m: number) => {
     return ((n % m) + m) % m;
-  }
+  };
+
+  const handlers = useSwipeable({
+    onSwiped: (eventData) => console.log("User Swiped!", eventData),
+    onSwipedLeft: () => navTestimonial(false),
+    onSwipedRight: () => navTestimonial(true),
+  });
 
   useEffect(() => {
     getTestimonials();
@@ -56,9 +63,9 @@ export const Testimonials = () => {
     setTimeout(() => {
       const currentIndex = testimonials.findIndex((t) => t === testimonial);
       const nextIndex = forward
-        ? mod((currentIndex + 1), testimonials.length)
-        : mod((currentIndex - 1), testimonials.length)
-        console.log(nextIndex)
+        ? mod(currentIndex + 1, testimonials.length)
+        : mod(currentIndex - 1, testimonials.length);
+      console.log(nextIndex);
       setTestimonial(testimonials[nextIndex]);
       setAnimateOut(false); // Reset the animate out flag
     }, 1000); // Wait for 1s before updating (ease out time)
@@ -82,6 +89,7 @@ export const Testimonials = () => {
         <section className="flex flex-1 bg-[radial-gradient(150rem_15rem_at_top,theme(colors.fuchsia.200),white)] items-center relative isolate overflow-x-clip bg-white px-6 py-32 sm:py-22 lg:px-8 lg:py-64">
           {!isLoading && (
             <div
+            {...handlers}
               className={`mx-auto max-w-2xl lg:max-w-4xl ${
                 animateOut ? "animate-out" : "animate-in"
               }`}

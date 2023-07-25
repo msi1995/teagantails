@@ -6,7 +6,7 @@ import { BASE_ROUTE } from "../App";
 export const Intake = () => {
   const formRef: any = useRef();
   const [intakeSubmitted, setIntakeSubmitted] = useState<boolean>(false);
-  const [canSubmitIntake, setCanSubmitIntake] = useState(false);
+  const [canSubmitIntake, setCanSubmitIntake] = useState<boolean>();
   const [firstName, setFirstName] = useState<string>("");
   const [lastInitial, setLastInitial] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -165,7 +165,7 @@ export const Intake = () => {
             className="mx-auto mt-16 max-w-2xl sm:mt-12 mt-4"
           >
             <div className="grid grid-cols-1 gap-x-8 sm:gap-y-4 gap-y-6 sm:grid-cols-2">
-              <div className="sm:col-span-2">
+              {/* <div className="sm:col-span-2">
                 <label
                   htmlFor="canSubmitIntake"
                   className="block text-sm font-semibold leading-6 text-gray-900"
@@ -192,7 +192,39 @@ export const Intake = () => {
                     </option>
                   </select>
                 </div>
+              </div> */}
+
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="canSubmitIntake"
+                  className="block text-sm font-semibold leading-6 text-gray-900"
+                >
+                  I have been instructed to complete the Intake Form after
+                  initial correspondence via email or phone.
+                  <span className="text-red-600"> *</span>
+                </label>
+                <div className="mt-2.5 flex flex-col w-full gap-y-2">
+                  <div>
+                    <input
+                      type="radio"
+                      value="Yes"
+                      name="canSubmitIntake"
+                      onClick={() => setCanSubmitIntake(true)}
+                    />{" "}
+                    Yes
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      value="No"
+                      name="canSubmitIntake"
+                      onClick={() => setCanSubmitIntake(false)}
+                    />{" "}
+                    No {canSubmitIntake === false && <span className="text-xs ml-4 text-red-600">Please use the contact form if you have not been instructed to complete intake.</span>}
+                  </div>
+                </div>
               </div>
+
               <div>
                 <label
                   htmlFor="first_name"
@@ -312,7 +344,10 @@ export const Intake = () => {
                     <div className="w-24">
                       <input
                         disabled={!canSubmitIntake}
-                        onChange={() => {setHasDogs(!hasDogs); setNumDogs('0')}}
+                        onChange={() => {
+                          setHasDogs(!hasDogs);
+                          setNumDogs("0");
+                        }}
                         className="align-middle h-4 w-4 mr-1"
                         type="checkbox"
                       />
@@ -333,7 +368,7 @@ export const Intake = () => {
                           value={numDogs}
                           onChange={(e) => setNumDogs(e.target.value)}
                           name="num_dogs"
-                            id="num_dogs"
+                          id="num_dogs"
                           className="block w-8 sm:border-0 border-solid border-2 border-slate-500 rounded-md border-0 sm:pl-3 pl-2 py-0.75 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -343,7 +378,10 @@ export const Intake = () => {
                     <div className="w-24">
                       <input
                         disabled={!canSubmitIntake}
-                        onChange={() => {setHasCats(!hasCats); setNumCats('0')}}
+                        onChange={() => {
+                          setHasCats(!hasCats);
+                          setNumCats("0");
+                        }}
                         className="align-middle h-4 w-4 mr-1"
                         type="checkbox"
                       />
@@ -377,7 +415,7 @@ export const Intake = () => {
                           disabled={!canSubmitIntake}
                           onChange={() => {
                             setHasOther(!hasOther);
-                            setNumOthers('0');
+                            setNumOthers("0");
                             setNotDogOrCat(!notDogOrCat);
                           }}
                           className="align-middle h-4 w-4 mr-1"
@@ -472,16 +510,17 @@ export const Intake = () => {
                   htmlFor="interested_grooming"
                   className="block text-sm font-semibold leading-6 text-gray-900"
                 >
-                  I offer basic grooming services for dogs and cats, such as nail trimming, bathing, and brushing. Is this something you might be interested in?<span className="text-red-600"> *</span>
+                  I offer basic grooming services for dogs and cats, such as
+                  nail trimming, bathing, and brushing. Is this something you
+                  might be interested in?
+                  <span className="text-red-600"> *</span>
                 </label>
                 <div className="mt-2.5">
                   <select
                     disabled={!canSubmitIntake}
                     value={interestedGrooming}
                     onChange={(e) => {
-                      setInterestedGrooming(
-                        e.target.value
-                      );
+                      setInterestedGrooming(e.target.value);
                     }}
                     name="interested_grooming"
                     id="interested_grooming"
