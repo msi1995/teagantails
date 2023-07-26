@@ -2,6 +2,7 @@ import { Navbar } from "./Navbar";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { BASE_ROUTE } from "../App";
+import { NavLink } from "react-router-dom";
 
 export const Intake = () => {
   const formRef: any = useRef();
@@ -220,7 +221,8 @@ export const Intake = () => {
                       name="canSubmitIntake"
                       onClick={() => setCanSubmitIntake(false)}
                     />{" "}
-                    No {canSubmitIntake === false && <span className="text-xs ml-4 text-red-600">Please use the contact form if you have not been instructed to complete intake.</span>}
+                    No {canSubmitIntake === false && <span className="text-xs ml-4 text-red-600">Please fill out the <NavLink
+                  to={"/contact"} className="underline">contact form</NavLink> if you have not been instructed to complete intake.</span>}
                   </div>
                 </div>
               </div>
