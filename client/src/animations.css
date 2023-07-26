@@ -8,6 +8,17 @@
       transform: translateX(-100%);
     }
   }
+
+  @keyframes slideOutReverse {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
   
   @keyframes slideIn {
     0% {
@@ -19,9 +30,14 @@
       transform: translateX(0);
     }
   }
+
   
   .animate-out {
     animation: slideOut 1s ease-in-out forwards;
+  }
+
+  .animate-out-reverse {
+    animation: slideOutReverse 1s ease-in-out forwards;
   }
   
   .animate-in {

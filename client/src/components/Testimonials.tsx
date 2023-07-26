@@ -20,6 +20,7 @@ export const Testimonials = () => {
   const [testimonial, setTestimonial] = useState<Testimonial>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [animateOut, setAnimateOut] = useState(false);
+  const [animateOutReverse, setAnimateOutReverse] = useState(false);
   const [reviewScreen, setReviewScreen] = useState(false);
 
   const mod = (n: number, m: number) => {
@@ -59,15 +60,15 @@ export const Testimonials = () => {
   }, [testimonial, testimonials, reviewScreen]);
 
   const navTestimonial = (forward: boolean) => {
-    setAnimateOut(true); // Trigger the animate out effect
+    forward ? setAnimateOut(true) : setAnimateOutReverse(true);
     setTimeout(() => {
       const currentIndex = testimonials.findIndex((t) => t === testimonial);
       const nextIndex = forward
         ? mod(currentIndex + 1, testimonials.length)
         : mod(currentIndex - 1, testimonials.length);
-      console.log(nextIndex);
       setTestimonial(testimonials[nextIndex]);
-      setAnimateOut(false); // Reset the animate out flag
+      setAnimateOut(false);
+      setAnimateOutReverse(false);
     }, 1000); // Wait for 1s before updating (ease out time)
   };
 
@@ -89,9 +90,13 @@ export const Testimonials = () => {
         <section className="flex flex-1 bg-[radial-gradient(150rem_15rem_at_top,theme(colors.fuchsia.200),white)] items-center relative isolate overflow-x-clip bg-white px-6 py-32 sm:py-22 lg:px-8 lg:py-64">
           {!isLoading && (
             <div
-            {...handlers}
+              {...handlers}
               className={`mx-auto max-w-2xl lg:max-w-4xl ${
-                animateOut ? "animate-out" : "animate-in"
+                animateOutReverse
+                  ? "animate-out-reverse"
+                  : animateOut
+                  ? "animate-out"
+                  : "animate-in"
               }`}
             >
               <TLogoBlack className="mx-auto h-16 w-24" />
