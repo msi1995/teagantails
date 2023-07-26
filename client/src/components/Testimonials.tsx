@@ -27,9 +27,9 @@ export const Testimonials = () => {
   };
 
   const handlers = useSwipeable({
-    onSwiped: (eventData) => console.log("User Swiped!", eventData),
     onSwipedLeft: () => navTestimonial(false),
     onSwipedRight: () => navTestimonial(true),
+    preventScrollOnSwipe: true,
   });
 
   useEffect(() => {
