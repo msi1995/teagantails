@@ -2,8 +2,8 @@ import { Navbar } from "./Navbar";
 import { useState, useEffect, useRef } from "react";
 import "../index.css";
 import "../animations.css";
-// import bg_video from "../assets/Tgnmuted264.mp4";
-import bg_video from "../assets/hd_trimmed265.mp4";
+import bg_video_av1 from "../assets/hd_trimmed_av1.mp4";
+import bg_video_264 from "../assets/Trimmed264.mp4";
 
 const heroTextIntro: string = `Hi, I'm Teagan.`;
 const heroTextBase: string = `I `;
@@ -78,7 +78,10 @@ export const Homepage = () => {
         playsInline
         className="parallax-video absolute top-0 left-0 w-full h-full object-cover opacity-100"
       >
-        <source src={bg_video} type="video/mp4" />
+        <source src={bg_video_av1} type='video/mp4' />
+        <source src={bg_video_264} type="video/mp4; codecs=avc1.42E01E" />
+        {/* <source src={bg_video_265} type='video/mp4; codecs="hev1"'/> */}
+        Your browser doesn't seem to support the video codec.
       </video>
       <div className="w-full p-0 m-0 flex flex-col min-h-screen">
         <Navbar />
