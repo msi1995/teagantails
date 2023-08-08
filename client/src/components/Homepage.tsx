@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import "../index.css";
 import "../animations.css";
 // import bg_video from "../assets/Tgnmuted264.mp4";
-import bg_video from "../assets/hd_alternative.mp4";
+import bg_video from "../assets/hd_alternativeWEBM.webm";
 
 const heroTextIntro: string = `Hi, I'm Teagan.`;
 const heroTextBase: string = `I `;
