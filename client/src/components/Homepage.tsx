@@ -76,9 +76,9 @@ export const Homepage = () => {
         loop
         muted={isMuted.current}
         playsInline
-        className="parallax-video absolute top-0 left-0 w-full h-full object-cover opacity-100"
+        className="fixed top-0 left-0 -z-10 w-full h-full object-cover opacity-100"
       >
-        <source src={bg_video_av1} type='video/mp4' />
+        <source src={bg_video_av1} type='video/mp4'/>
         <source src={bg_video_264} type="video/mp4; codecs=avc1.42E01E" />
         {/* <source src={bg_video_265} type='video/mp4; codecs="hev1"'/> */}
         Your browser doesn't seem to support the video codec.
