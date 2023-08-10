@@ -28,8 +28,8 @@ export const Testimonials = () => {
   };
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => navTestimonial(false),
-    onSwipedRight: () => navTestimonial(true),
+    onSwipedLeft: () => navTestimonial(true),
+    onSwipedRight: () => navTestimonial(false),
     preventScrollOnSwipe: true,
   });
 
